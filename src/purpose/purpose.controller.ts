@@ -1,15 +1,27 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { PurposeService } from './purpose.service';
 import { CreatePurposeDto } from './dto/create-purpose.dto';
 import { UpdatePurposeDto } from './dto/update-purpose.dto';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('purpose')
 @Controller('purpose')
 export class PurposeController {
   constructor(private readonly purposeService: PurposeService) {}
 
-  @Post()
-  create(@Body() createPurposeDto: CreatePurposeDto) {
-    return this.purposeService.create(createPurposeDto);
+  @Post(':productId')
+  create(
+    @Param('productId') productId: string,
+    @Body() createPurposeDto: CreatePurposeDto,
+  ) {
+    return this.purposeService.create(createPurposeDto, +productId);
   }
 
   @Get()
