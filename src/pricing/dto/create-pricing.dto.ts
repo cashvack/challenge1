@@ -1,25 +1,42 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { CategoryType } from '@prisma/client';
+import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum } from 'class-validator';
 
 export class CreatePricingDto {
+
   @ApiProperty()
-  @IsEnum(CategoryType)
-  productCategory: CategoryType;
+    @IsEnum(CategoryType)
+    productCategory: CategoryType;
+
   @ApiProperty()
-  productName: string;
+    productName: string;
+
   @ApiProperty()
-  weather: string;
+    weather: string;
+
   @ApiProperty()
-  marketDataFeeds: string;
+    season: string;
+
   @ApiProperty()
-  season: string;
+    supply: number;
+
   @ApiProperty()
-  supply: number;
+    demand: number;
+
   @ApiProperty()
-  demand: number;
+    perishable: boolean;
+
   @ApiProperty()
-  perishable: boolean;
+    inventory: number;
+  
   @ApiProperty()
-  inventory: number;
-}
+    location: string;
+   
+  
+  @ApiProperty()
+    wholesalePrice: number;
+   
+  @ApiProperty()
+    retailPrice: number;
+  }
+ 
