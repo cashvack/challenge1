@@ -8,7 +8,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const config = new DocumentBuilder()
     .setTitle('Task1')
-    .setDescription('matchprdouctpurpose')
+    .setDescription('Match Product Purpose')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

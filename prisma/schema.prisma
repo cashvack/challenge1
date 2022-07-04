@@ -34,11 +34,35 @@ model Purpose {
 }
 
 model Usage {
-  id        Int      @id @default(autoincrement())
-  name      String
-  code      String
-  CreatedAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  product   Product  @relation(fields: [productId], references: [id])
-  productId Int
+  id             Int      @id @default(autoincrement())
+  description    String
+  minimumQuality String
+  code           String
+  CreatedAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  product        Product  @relation(fields: [productId], references: [id])
+  productId      Int
+}
+
+model Pricing {
+  id              Int          @id @default(autoincrement())
+  productCategory CategoryType
+  productName     String
+  weather         String
+  marketDataFeeds String
+  season          String
+  supply          Int
+  demand          Int
+  perishable      Boolean
+  inventory       Int
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+}
+
+enum CategoryType {
+  GreenVegetables  @map("greenvegetables")
+  Fruits           @map("fruits")
+  Dairy            @map("dairy")
+
+  @@map("CategoryType")
 }
