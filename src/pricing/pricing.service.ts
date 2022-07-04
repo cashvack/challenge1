@@ -3,24 +3,13 @@ import { CreatePricingDto } from './dto/create-pricing.dto';
 import { UpdatePricingDto } from './dto/update-pricing.dto';
 
 @Injectable()
-export class PricingsService {
+export class PricingService {
   create(createPricingDto: CreatePricingDto) {
-    
-    // productCategory: CategoryType;
-    // productName : string;
-    // weather: string;
-    // marketDataFeeds: string;
-    // season         : string;
-    // supply: number;
-    // demand: number;
-    // perishable: Boolean;
-    // inventory : number;
-    
     return 'This action adds a new pricing';
   }
 
   findAll() {
-    return `This action returns all pricings`;
+    return `This action returns all pricing`;
   }
 
   findOne(id: number) {

@@ -1,34 +1,34 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { PricingsService } from './pricings.service';
+import { PricingService } from './pricing.service';
 import { CreatePricingDto } from './dto/create-pricing.dto';
 import { UpdatePricingDto } from './dto/update-pricing.dto';
 
-@Controller('pricings')
-export class PricingsController {
-  constructor(private readonly pricingsService: PricingsService) {}
+@Controller('pricing')
+export class PricingController {
+  constructor(private readonly pricingService: PricingService) {}
 
   @Post()
   create(@Body() createPricingDto: CreatePricingDto) {
-    return this.pricingsService.create(createPricingDto);
+    return this.pricingService.create(createPricingDto);
   }
 
   @Get()
   findAll() {
-    return this.pricingsService.findAll();
+    return this.pricingService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.pricingsService.findOne(+id);
+    return this.pricingService.findOne(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePricingDto: UpdatePricingDto) {
-    return this.pricingsService.update(+id, updatePricingDto);
+    return this.pricingService.update(+id, updatePricingDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.pricingsService.remove(+id);
+    return this.pricingService.remove(+id);
   }
 }
